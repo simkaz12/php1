@@ -231,6 +231,7 @@ print_r($arr);
 echo '*******************************************************<br>';
 //***************************************************************************************************************** */
 echo '<pre>';
+/*
 $naujasArr = [];
 
 foreach(range(1, 200) as $value) {
@@ -260,21 +261,19 @@ echo '--------------------------------------------------------------------<br>';
 // 4.
 sort($naujasArr);
 print_r($naujasArr);
-
+*/
 // 6.
 
-foreach(range(1, 100) as $_) {
-    $pirmas[] = rand(100, 999);  
-};
+$arr = [];
+$arr2 = [];
 
-
-foreach($pirmas as $key => $value) {
-    $randomas = rand(100, 999);
-    if ($value !== $randomas) {
-        $antras[] = $randomas;
+foreach(range(1, 100) as $value) {
+    
+    if (!array_key_exists($value, $arr)) {
+        $arr[] = rand(100, 999);
+        $arr2[] = rand(100, 999);
     }
 }
-    
-print_r($pirmas);
+print_r($arr);
 echo '<br>';
-print_r($antras);
+print_r($arr2);
