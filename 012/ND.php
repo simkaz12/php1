@@ -246,21 +246,21 @@ print_r($sumos);
 */
 // 3.
 
-/*
+
 $m2D = [];
 
 foreach(range(1, 10) as $_) {
     $tarpinis = [];
-    foreach(range(2, rand(2, 20)) as $_) {
+    foreach(range(1, rand(2, 20)) as $_) {
         $tarpinis[] = chr(rand(65, 90)); // random raides nuo A-Z
     }
     $m2D[] = $tarpinis;
 }
 
 echo '<br>';
-print_r($m2D);
+//print_r($m2D);
 // 4.
-
+/*
 $sortintas = [];
 sort($m2D);
 
@@ -270,6 +270,19 @@ foreach($m2D as $value) {
 
 print_r($sortintas);
 */
+
+usort($m2D, function($a, $b) {
+    if (in_array('K', $b) && !in_array('K', $a)) {
+        return 1;
+    }
+    if (in_array('K', $a) && !in_array('K', $b)) {
+        return -1;
+    }
+    return count($a) <=> count($b);
+});
+
+//print_r($m2D);
+
 //5.
 
 $masyvas = [];
@@ -277,12 +290,38 @@ $masyvas = [];
 foreach(range(1, 30) as $_) {
     $tarpinis = [];
     foreach(range(1, 2) as $key => $value) {
-        $tarpinis[rand(1, 1000000)] = rand(0, 100);
+        $tarpinis['user_id'] = rand(1, 1000000);
+        $tarpinis['place_in_row'] = rand(0, 100);
     }
     $masyvas[] = $tarpinis;
 }
 
 echo '<br>';
-//print_r($masyvas);
+print_r($masyvas);
 
 // 6.
+
+usort($masyvas, function($a, $b) {
+    return $a['place_in_row'] <=> $b['place_in_row'];
+});
+
+print_r($masyvas);
+// 8.
+
+/*
+$arr = [];
+
+foreach(range(1, 10) as $_) {
+    $tarpinis = [];
+    $arrIlgis = rand(0, 5);
+    foreach(range(1, $arrIlgis) as $_) {
+        $tarpinis[] = rand(0, 10);
+    }
+    if ($arrIlgis == 0) {
+        $arr[] = rand(0, 10);
+    }
+    $arr[] = $tarpinis;
+}
+
+print_r($arr);
+*/
