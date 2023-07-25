@@ -1,4 +1,6 @@
-
+<?php
+header('Location: http://localhost/php/php1/015/orange.php');
+?>
 
 
 <!DOCTYPE html>
