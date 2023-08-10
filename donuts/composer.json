@@ -1,0 +1,18 @@
+{
+    "name": "kolibris/donuts",
+    "description": "Donuts Store",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Donuts\\": "app/",
+            "App\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Simonas Kazlauskas",
+            "email": "sksimkaz8@gmail.com"
+        }
+    ],
+    "require": {}
+}

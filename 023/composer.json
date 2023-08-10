@@ -1,0 +1,16 @@
+{
+    "name": "kolibris/023",
+    "description": "Bebras Garden",
+    "autoload": {
+        "psr-4": {
+            "": ""
+        }
+    },
+    "authors": [
+        {
+            "name": "Simonas Kazlauskas",
+            "email": "sksimkaz8@gmail.com"
+        }
+    ],
+    "require": {}
+}

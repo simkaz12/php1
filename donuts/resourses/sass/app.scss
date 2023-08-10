@@ -1,0 +1,11 @@
+@import 'bootstrap/scss/bootstrap';
+
+body {
+    font-family: 'Noto Sans Zanabazar Square', sans-serif;
+}
+
+
+ul.navbar-nav {
+    flex-direction: row;
+    gap: 20px;
+}
