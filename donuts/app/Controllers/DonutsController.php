@@ -26,6 +26,7 @@ class DonutsController {
         return App::view('donuts/index', [
             'pageTitle' => 'Donuts index page',
             'donuts' => $donuts,
+            'coatings' =>  $this->coatings,
         ]);
        
     }
@@ -50,5 +51,58 @@ class DonutsController {
         (new FileDB('donuts'))->create($data);
 
         return App::redirect('donuts');
+    }
+    public function delete($id)
+    {
+        $donut = (new FileDB('donuts'))->show($id);
+
+        return App::view('donuts/delete', [
+            'pageTitle' => 'Confirm delete',
+            'donut' => $donut,
+        ]);
+    }
+
+    public function destroy($id)
+    {
+        (new FileDB('donuts'))->delete($id);
+
+        return App::redirect('donuts');
+    }
+
+    public function edit($id)
+    {
+        $donut = (new FileDB('donuts'))->show($id);
+
+        return App::view('donuts/edit', [
+            'pageTitle' => 'Edit donut',
+            'donut' => $donut,
+            'coatings' => $this->coatings,
+        ]);
+    }
+
+    public function update($id)
+    {
+        $data = [
+            'title' => $_POST['title'],
+            'coating' => $_POST['coating'],
+            'extra' => $_POST['extra'] ?? 'off',
+            'desc' => $_POST['desc'],
+            'hole' => $_POST['hole']
+        ];
+
+        (new FileDB('donuts'))->update($id, $data);
+
+        return App::redirect('donuts');
+    }
+
+    public function show($id)
+    {
+        $donut = (new FileDB('donuts'))->show($id);
+
+        return App::view('donuts/show', [
+            'pageTitle' => 'Donut details',
+            'donut' => $donut,
+            'coatings' => $this->coatings,
+        ]);
     }
 }
